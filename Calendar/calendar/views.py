@@ -21,6 +21,6 @@ def add_event(request):
         if not date or not notification:
             return HttpResponse({'error': 'validation error'})
 
-        date_c = datetime.strptime(date, '%d/%m/%Y').strftime('%Y-%m-%d')
-        models.Event.objects.create(date=date_c, text=notification)
-    return HttpResponse('<p>QWertyy</p>')
+        converted_date = datetime.strptime(date, '%d/%m/%Y').strftime('%Y-%m-%d')
+        models.Event.objects.create(date=converted_date, text=notification)
+    return HttpResponse('POST')
