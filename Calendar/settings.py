@@ -43,7 +43,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -69,9 +69,12 @@ DATABASES = {
     }
 }
 
-STATICFILES_FINDERS = ('djangobower.finders.BowerFinder', )
-
-# BOWER_COMPONENTS_ROOT = BASE_DIR
+STATICFILES_FINDERS = (
+                       'django.contrib.staticfiles.finders.FileSystemFinder',
+                       'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+                       'djangobower.finders.BowerFinder',
+                       )
+# STATICFILES_STORAGE = ('staticfiles.storage.StaticFileStorage')
 
 BOWER_INSTALLED_APPS = (
     'eonasdan-bootstrap-datetimepicker#latest',

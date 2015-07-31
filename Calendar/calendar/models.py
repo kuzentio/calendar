@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Event(models.Model):
-    date = models.DateTimeField()
+    date = models.DateField()
     text = models.CharField(max_length=250)
 
     def __unicode__(self):

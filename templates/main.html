@@ -1,30 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
     <div class="container">
+        <h1>Календарь</h1>
+        <div id="events">
+            <span id="event"></span>
+        </div>
+        <div id="refresh">
+            <input id="refresh_events" class="btn btn-default" type="submit" value="Обновить события">
+        </div>
+        <br>
+        <form method="POST" action="javascript:void(null);" onsubmit="send_event()" id="send_event">
         <div class="row">
             <div class='col-sm-6'>
                 <div class="form-group">
                     <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" />
+                        <input type='text' class="form-control" name="date" />
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
                 </div>
-                <input class="btn btn-default" type="submit">
-
-
             </div>
+            <span>Напоминание:<input type="text" class="form-control-static" name="notification" /></span>
+            <input type="submit" class="btn btn-default">
+        </div>
+        </form>
             <script type="text/javascript">
                 $(function () {
                     $('#datetimepicker1').datetimepicker({
-                        format: "DD/MM/YY"
+                        format: "DD/MM/YYYY"
                     });
                 });
             </script>
-        </div>
+    <div id="errors"></div>
     </div>
+
+
+
 
 
 {% endblock %}
