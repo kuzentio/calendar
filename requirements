@@ -1,0 +1,4 @@
+Django==1.8.3
+django-bower==5.0.4
+ipdb==0.8.1
+psycopg2==2.6.1
