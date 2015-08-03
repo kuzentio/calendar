@@ -41,9 +41,6 @@ $(document).ready(function(){
     $('#refresh_events').click(function(){
         $.get('events').done(ShowEvents)
     });
-
-    //$.post('add_event', )
-
 });
 
 
